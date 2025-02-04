@@ -1,76 +1,86 @@
-<script setup>
-import { computed, ref } from 'vue';
-
-
-const props = defineProps(['label', "error", 'requiredLabel', 'type'])
-const isTextarea = computed(() => props.type === 'textarea');
-
-const containerClass = computed(() => ({
-  'mb-2': !!props.error, // Adds margin-bottom if there's an error
-}));
-
-const showPassword = ref(false);
-
-const inputType = computed(() => {
-  if (props.type === 'password') {
-    return showPassword.value ? 'text' : 'password';
-  }
-  return props.type;
-});
-
-const togglePasswordVisibility = () => {
-  showPassword.value = !showPassword.value;
-};
-
-</script>
-
 <template>
-
-    <div class="p-field">
-        <div class="text-[#354665] font-medium text-md mb-1">
-            {{props.label}}
-            <span v-if="props.requiredLabel" class="text-red-500">*</span>
-        </div>
-        <q-input 
-            dense
-            outlined
-            borderless
-            class="w-full rounded-md border-slate-200 hover:border-blue-400"
-            :class="{'input-dense': !isTextarea, containerClass}"
-            debounce="800"
-            v-bind="$attrs"
-            :type="inputType"
-            :error="!!props.error"
-            :error-message="props.error" 
-        >
-            <template v-if="props.type === 'password'" v-slot:append>
-                <q-icon
-                    name="visibility_off"
-                    v-if="!showPassword"
-                    @click="togglePasswordVisibility"
-                    class="cursor-pointer text-slate-400 text-base"
-                />
-                <q-icon
-                    name="visibility"
-                    v-else
-                    @click="togglePasswordVisibility"
-                    class="cursor-pointer text-slate-400 text-base"
-                />
-            </template>
-            <slot></slot>
-        </q-input>
+    <div class=" w-full">
+      <div v-if="label" class="text-[#354665] font-medium text-sm mb-1 justify-center items-center">
+        {{ label }}
+        <span v-if="requiredLabel" class="text-red-500">*</span>
+      </div>
+    <q-input
+      dense
+      borderless
+      outlined
+      class="custom-input"
+      :class="{ 'input-error': error }"
+      v-bind="$attrs"
+      :type="inputType"
+      :error="!!error"
+      :error-message="error"
+      :style="{ width: props.width || '100%', height: '40px'}"
+      >
+        <template v-if="$slots.prepend" v-slot:prepend>
+          <slot name="prepend"></slot>
+        </template>
+        
+        <template v-if="type === 'password'" v-slot:append>
+          <q-icon
+            :name="showPassword ? 'visibility' : 'visibility_off'"
+            @click="togglePasswordVisibility"
+            class="cursor-pointer text-gray-400"
+          />
+        </template>
+  
+        <template v-else-if="$slots.append" v-slot:append>
+          <slot name="append"></slot>
+        </template>
+      </q-input>
     </div>
-
-</template>
-
-<style>
-.p-field .q-field__inner.input-dense {
-    background-color: white !important;
-    border-radius: 8px;
-}
-
-.p-field .q-field__control.input-dense {
-    border-radius: 8px;
+  </template>
+  
+  <script setup>
+  import { computed, ref } from 'vue';
+  
+  const props = defineProps({
+    label: String,
+    error: String,
+    requiredLabel: Boolean,
+    type: String,
+    width: String
+  })
+  
+  const showPassword = ref(false)
+  
+  const inputType = computed(() => {
+    if (props.type === 'password') {
+      return showPassword.value ? 'text' : 'password'
+    }
+    return props.type
+  })
+  
+  const togglePasswordVisibility = () => {
+    showPassword.value = !showPassword.value
+  }
+  </script>
+  
+  <style scoped>
+  .custom-input {
+    background-color: #f3f4f6;
+    border-radius: 10px;
+  }
+  
+  .custom-input :deep(.q-field__control) {
+    border-radius: 10px;
     height: 40px;
-}
-</style>
+  }
+
+    .custom-input :deep(.q-field__control::before) {
+        border: none;
+    }
+
+  
+  .custom-input :deep(.q-field__control:hover) {
+    border-color: #60a5fa;
+  }
+  
+  .input-error :deep(.q-field__control) {
+    border-color: #ef4444;
+  }
+  </style>
