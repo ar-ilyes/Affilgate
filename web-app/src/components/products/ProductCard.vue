@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow duration-200 cursor-pointer border-[1px] border-grayCustom-100">
+    <div class="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow duration-200 cursor-pointer border-[1px] border-grayCustom-100" @click="redirectToProductPage">
       <div class="relative">
         <!-- Badge container -->
         <div class="absolute top-2 right-[15%] z-10 flex gap-1 items-center">
@@ -34,24 +34,30 @@
   </template>
   
   <script setup>
-  defineProps({
-    product: {
-      type: Object,
-      required: true,
-      validator: (prop) => {
-        return [
-          'title',
-          'description',
-          'image',
-          'da',
-          'commission',
-          'category',
-          'price',
-          'rating'
-        ].every(key => key in prop)
+  import { useRouter } from 'vue-router';
+    const props = defineProps({
+      product: {
+        type: Object,
+        required: true,
+        validator: (prop) => {
+          return [
+            'title',
+            'description',
+            'image',
+            'da',
+            'commission',
+            'category',
+            'price',
+            'rating'
+          ].every(key => key in prop)
+        }
       }
+    })
+    const router = useRouter();
+
+    const redirectToProductPage = () => {
+      router.push(`marketplace/${props.product.id}`);
     }
-  })
   </script>
   
   <style scoped>

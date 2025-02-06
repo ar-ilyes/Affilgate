@@ -11,10 +11,11 @@
       :loading="loading"
       :class="[
         'custom-button',
+        customClass,
         variant === 'filled' && !color && ' bg-customGray-500 text-customGray-600',
-        variant === 'outline' && !color && 'border-primary text-primary',
-        variant === 'text' && !color && 'text-primary',
-        customClass
+        variant === 'outline' && !color && ' border-primaryColor-500 text-primaryColor-500',
+        variant === 'text' && !color && 'text-primaryColor-500',
+        
       ]"
       v-bind="$attrs"
     >

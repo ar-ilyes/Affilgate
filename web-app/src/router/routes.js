@@ -26,6 +26,11 @@ const routes = [
         path: 'profile',
         component: () => import('pages/Business/ProfilePage.vue'),
         name: "profile",
+      },
+      {
+        path: 'accountprofile',
+        component: () => import('pages/Business/AccountProfilePage.vue'),
+        name: "accountprofile",
       }
     ]
   },
