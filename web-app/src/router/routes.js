@@ -31,6 +31,26 @@ const routes = [
         path: 'accountprofile',
         component: () => import('pages/Business/AccountProfilePage.vue'),
         name: "accountprofile",
+      },
+      {
+        path: 'myProducts',
+        component: () => import('pages/Business/MyProductsPage.vue'),
+        name: "myProducts",
+      },
+      {
+        path: 'myProducts/:id',
+        component: () => import('pages/Products/ProductDetailsCreatorPage.vue'),
+        name: "myProductsEdit",
+      },
+      {
+        path: 'products/create',
+        component: () => import('pages/Products/CreateProduct/ProductInformationPage.vue'),
+        name: "create-product",
+      },
+      {
+        path: 'products/create/marketing',
+        component: () => import('pages/Products/CreateProduct/MarketingMaterialsPage.vue'),
+        name: "create-product-marketing",
       }
     ]
   },
