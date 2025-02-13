@@ -13,7 +13,7 @@
         </h2>
         <form class="flex flex-col mt-6">
             <!-- TODO ADD LINK TO PAGE WHERE USER CAN CONTINUE REGISTRATION (EITHER COMPANY OR CANDIDATE) -->
-            <router-link :to="{ name: 'onboarding-user' }" class="text-[#278D62]">
+            <router-link :to="{ name: 'onboarding-user' }" class="text-[#F97316]">
                 <Button 
                     type="button"
                     label="Continuer mon inscription"

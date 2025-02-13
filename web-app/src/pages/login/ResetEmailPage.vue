@@ -22,10 +22,10 @@
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M24 45C35.598 45 45 35.598 45 24C45 12.402 35.598 3 24 3C12.402 3 3 12.402 3 24C3 35.598 12.402 45 24 45Z"
-                        fill="#4CAF50" />
+                        fill="#F97316" />
                     <path
                         d="M34.6001 14.5996L21.0001 28.1996L15.4001 22.5996L12.6001 25.3996L21.0001 33.7996L37.4001 17.3996L34.6001 14.5996Z"
-                        fill="#CCFF90" />
+                        fill="#FFEDD5" />
                 </svg>
 
                 <div class="text-3xl text-center font-bold">Vérifiez vos emails</div>
@@ -37,7 +37,7 @@
             </q-card-section>
 
             <q-card-actions align="center">
-                <q-btn flat label="OK" class="bg-[#278D62] text-white py-2 rounded-2xl mt-4 w-24" v-close-popup />
+                <q-btn flat label="OK" class="bg-[#F97316] text-white py-2 rounded-2xl mt-4 w-24" v-close-popup />
             </q-card-actions>
         </q-card>
     </q-dialog>
