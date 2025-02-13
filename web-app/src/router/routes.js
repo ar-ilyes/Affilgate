@@ -51,6 +51,11 @@ const routes = [
         path: 'products/create/marketing',
         component: () => import('pages/Products/CreateProduct/MarketingMaterialsPage.vue'),
         name: "create-product-marketing",
+      },
+      {
+        path: 'invoices',
+        component: () => import('pages/Business/InvoicesPage.vue'),
+        name: "invoices",
       }
     ]
   },

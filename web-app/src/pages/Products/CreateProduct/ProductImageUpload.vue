@@ -14,14 +14,14 @@
       </div>
   
       <!-- Image Preview Grid -->
-      <div v-if="modelValue.length > 0" class="grid grid-cols-1 gap-4 mt-4">
+      <div v-if="modelValue.length > 0" class="flex gap-1 mt-4">
         <div 
           v-for="(image, index) in modelValue" 
           :key="index"
-          class="relative group"
+          class="relative flex group w-[24%] justify-center"
         >
           <div 
-            class="relative rounded-lg overflow-hidden"
+            class="relative rounded-lg"
             :class="{
               'bg-gray-900 bg-opacity-50': mainImageIndex === index
             }"
@@ -38,10 +38,10 @@
             <!-- Hover Overlay -->
             <div 
               v-if="mainImageIndex !== index"
-              class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity flex items-center justify-center"
+              class="absolute inset-0  bg-opacity-0 group-hover:bg-opacity-50 transition-opacity flex items-center justify-center"
             >
               <button
-                class="opacity-0 group-hover:opacity-100 bg-primaryColor-100 text-primaryColor-500 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                class="opacity-0 group-hover:opacity-100 bg-primaryColor-100 text-primaryColor-500 px-2 py-1 rounded-full text-xs font-medium transition-all duration-200"
                 @click.stop="setAsMain(index)"
               >
                 Set as main picture
@@ -51,19 +51,20 @@
             <!-- Main Image Badge -->
             <div 
               v-if="mainImageIndex === index"
-              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primaryColor-100 text-primaryColor-500 px-4 py-2 rounded-full text-sm font-medium"
+              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primaryColor-100 text-primaryColor-500 px-2 py-1 rounded-full text-xs font-medium w-2/3"
             >
               Main picture
             </div>
-          </div>
-  
-          <!-- Remove Button -->
+            <!-- Remove Button -->
           <button
-            class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 transition-colors"
+            class="absolute -top-2 -right-2 z-50 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 transition-colors"
             @click.stop="removeImage(index)"
           >
             ×
           </button>
+          </div>
+  
+          
         </div>
       </div>
   

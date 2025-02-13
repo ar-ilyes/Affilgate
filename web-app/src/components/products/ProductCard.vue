@@ -56,7 +56,7 @@
     const router = useRouter();
 
     const redirectToProductPage = () => {
-      router.push(`marketplace/${props.product.id}`);
+      router.push(`/marketplace/${props.product.id}`);
     }
   </script>
   
