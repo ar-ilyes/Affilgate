@@ -17,10 +17,11 @@
             :to="item.route"
             clickable
             v-ripple
-            active-class="text-primaryColor-500"
+            active-class="text-primaryColor-500 font-bold"
           >
             <q-item-section avatar>
-              <q-icon :name="item.icon" />
+              <!-- <q-icon :name="item.icon" /> -->
+              <img :src="getIconSrc(item)" alt="icon" class="w-6" />
             </q-item-section>
             <q-item-section>
               {{ item.label }}
@@ -70,17 +71,26 @@
 <script setup>
 import { ref } from 'vue'
 import Input from 'components/basic/Input.vue'
+import { useRoute } from 'vue-router'
+
 
 const leftDrawerOpen = ref(true)
 const search = ref('')
 
 const menuItems = [
-  { label: 'Marketplace', icon: 'shopping_basket', route: '/marketplace' },
-  { label: 'My products', icon: 'inventory_2', route: '/products' },
-  { label: 'Invoices', icon: 'receipt', route: '/invoices' },
-  { label: 'Performances', icon: 'trending_up', route: '/performances' },
+  { label: 'Marketplace', icon: 'marketplace', route: '/marketplace' },
+  { label: 'My products', icon: 'myproducts', route: '/myproducts' },
+  { label: 'Invoices', icon: 'invoices', route: '/invoices' },
+  { label: 'Performances', icon: 'performance', route: '/performances' },
   { label: 'Settings', icon: 'settings', route: '/settings' }
 ]
+
+const getIconSrc = (item) => {
+  const isActive = route.path === item.route
+  return `/icons/${item.icon}${isActive ? '-selected' : ''}.svg`
+}
+const route = useRoute()
+
 </script>
 
 <style scoped>
