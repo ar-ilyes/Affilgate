@@ -12,9 +12,9 @@
         <span>Product details</span>
       </div>
   
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <!-- Product Images and Info -->
-        <div class="lg:col-span-3">
+        <div class="lg:col-span-2">
           <div class="flex">
             <ProductImageCarousel
               :images="product.images"
@@ -80,7 +80,7 @@
         </div>
   
         <!-- Update History -->
-        <div>
+        <div class="lg:col-span-1">
           <ProductUpdateHistory />
         </div>
       </div>

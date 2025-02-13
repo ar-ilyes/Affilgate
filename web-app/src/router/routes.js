@@ -56,6 +56,16 @@ const routes = [
         path: 'invoices',
         component: () => import('pages/Business/InvoicesPage.vue'),
         name: "invoices",
+      },
+      {
+        path: 'performances',
+        component: () => import('pages/Business/PerformancePage.vue'),
+        name: "performances",
+      },
+      {
+        path: 'payment',
+        component: () => import('pages/payment/PaymentPage.vue'),
+        name: "payment",
       }
     ]
   },

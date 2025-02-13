@@ -1,10 +1,10 @@
 <template>
-    <div class="bg-white rounded-lg">
-      <h3 class="text-lg font-bold text-gray-800 mb-6">Price/ commission updates history</h3>
+    <div class=" bg-customGray-50 py-6 px-6 rounded-lg h-full">
+      <h3 class="text-xl font-bold text-gray-800 mb-6">Price/ commission updates history</h3>
       
-      <div class="space-y-6 max-h-[600px] overflow-y-auto pr-2">
+      <div :class="['space-y-6', 'max-h-[600px]', 'overflow-y-auto', 'pr-2', props.height]">
         <!-- Price Update - Pending -->
-        <div class="border border-primaryColor-200 rounded-lg p-4">
+        <div class="border-2 bg-white border-primaryColor-400 rounded-lg p-4">
           <div class="flex justify-between mb-2">
             <span class="font-medium">Price update</span>
             <span class="text-gray-500">11-08-2024</span>
@@ -25,8 +25,8 @@
             <div class="flex justify-between">
               <span class="text-gray-400">Status</span>
               <span class="flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-primaryColor-500"></span>
-                <span class="text-primaryColor-500">Pending</span>
+                <span class="w-2 h-2 rounded-full bg-primaryColor-500"></span>
+                <span class="text-primaryColor-500 font-bold">Pending</span>
               </span>
             </div>
           </div>
@@ -36,7 +36,7 @@
         </div>
   
         <!-- Price Update - Rejected -->
-        <div class="border border-gray-100 rounded-lg p-4">
+        <div class="border-2 bg-white border-red-500 rounded-lg p-4">
           <div class="flex justify-between mb-2">
             <span class="font-medium">Price update</span>
             <span class="text-gray-500">11-08-2024</span>
@@ -57,19 +57,19 @@
             <div class="flex justify-between">
               <span class="text-gray-400">Status</span>
               <span class="flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
-                <span class="text-red-500">Rejected</span>
+                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                <span class="text-red-500 font-bold">Rejected</span>
               </span>
             </div>
           </div>
-          <div class="mt-3">
+          <div class="mt-3 border border-customGray-200 rounded-lg p-2">
             <p class="text-sm text-gray-500">Reason of rejection</p>
             <p class="text-sm text-gray-700">The price is too expensive compared to the previous price</p>
           </div>
         </div>
   
         <!-- Commission Update - Accepted -->
-        <div class="border border-gray-100 rounded-lg p-4">
+        <div class="border bg-white border-gray-100 rounded-lg p-4">
           <div class="flex justify-between mb-2">
             <span class="font-medium">Commission update</span>
             <span class="text-gray-500">11-08-2024</span>
@@ -101,6 +101,13 @@
   </template>
   
   <script setup>
+  //define props
+  const props = defineProps({
+  height: {
+    type: String,
+    required: false
+  },
+})
   // No data needed as it's all hardcoded for the example
   </script>
   
