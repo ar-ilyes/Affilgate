@@ -237,7 +237,7 @@ watch(
                     >
                     <template props="props" v-slot="{ index, item }">
                             <q-chip
-                                class=" bg-white border-2 border-[#107D2E] flex flex-row gap-2"
+                                class=" bg-white border-2 border-[#F97316] flex flex-row gap-2"
                             >
                                 <div class="flex flex-row items-center gap-2">
                                     <p>
