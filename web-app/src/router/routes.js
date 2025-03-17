@@ -69,24 +69,93 @@ const routes = [
       }
     ]
   },
-  // {
-  //   path: '/auth',
-  //   component: () => import('layouts/AuthLayout.vue'),
-  //   name: "auth",
-  //   meta: {middleware: [guest]},
-  //   children: [
-  //     {
-  //       path: 'login',
-  //       component: () => import('pages/login/LoginPage.vue'),
-  //       name: "login",
-  //     },
-  //     {
-  //       path: 'register',
-  //       component: () => import('pages/register/RegisterPage.vue'),
-  //       name: "register",
-  //     }
-  //   ]
-  // },
+  {
+    path: '/auth',
+    component: () => import('layouts/AuthLayout.vue'),
+    name: "auth",
+    meta: {middleware: [guest]},
+    children: [
+      {
+        path: 'login',
+        component: () => import('pages/auth/LoginPage.vue'),
+        name: "login",
+      },
+      {
+        path: 'register',
+        component: () => import('pages/auth/RegisterPage.vue'),
+        name: "register",
+      },
+      {
+        path: 'verify-email',
+        component: () => import('pages/auth/VerifyEmailPage.vue'),
+        name: "verify-email",
+      },
+      {
+        path: 'forgot-password',
+        component: () => import('pages/auth/ForgotPasswordPage.vue'),
+        name: "forgot-password",
+      },
+      {
+        path: 'check-email-password',
+        component: () => import('src/pages/auth/CheckEmailPasswordPage.vue'),
+        name: "check-email",
+      },
+      {
+        path: 'reset-password',
+        component: () => import('pages/auth/ResetPasswordPage.vue'),
+        name: "reset-password",
+      },
+      {
+        path: 'reset-success',
+        component: () => import('pages/auth/ResetSuccessPage.vue'),
+        name: "reset-success",
+      }
+    ]
+  },
+  {
+    path: '/onboarding',
+    component: () => import('layouts/AuthLayout.vue'),
+    // meta: {middleware: [auth]},
+    children: [
+      {
+        path: 'type',
+        component: () => import('pages/onboarding/UserTypePage.vue'),
+        name: "onboarding-type",
+      },
+      {
+        path: 'personal-info',
+        component: () => import('pages/onboarding/PersonalInfoPage.vue'),
+        name: "onboarding-personal-info",
+      },
+      {
+        path: 'business-info',
+        component: () => import('pages/onboarding/BusinessInfoPage.vue'),
+        name: "onboarding-business-info",
+      },
+      {
+        path: 'marketing-preferences',
+        component: () => import('pages/onboarding/MarketingPreferencesPage.vue'),
+        name: "onboarding-marketing-preferences",
+      }
+    ]
+  },
+  {
+    path: '/marketer',
+    component: () => import('layouts/MainLayout.vue'),
+    // meta: {middleware: [auth]},
+    children: [
+      {
+        path: 'profile',
+        component: () => import('pages/marketer/profile/ProfilePage.vue'),
+        name: "profile",
+      },
+      {
+        path: 'financials',
+        component: () => import('pages/marketer/Financial/Financial.vue'),
+        name: "financials",
+      },
+    ]
+  },
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue')

@@ -123,8 +123,8 @@
             class="text-black w-10 h-10"
           />
         </div>
-        <div class="p-6 h-[70%] bg-gray-50 overflow-scroll">
-          <div class="flex items-center justify-between mb-4">
+        <div class="p-6 h-[75%] bg-gray-50 overflow-scroll">
+          <!-- <div class="flex items-center justify-between mb-4">
             <h2 class="text-lg font-bold">Preview</h2>
             <div class="flex gap-2">
               <Button 
@@ -138,10 +138,10 @@
                 class="text-gray-500"
               />
             </div>
-          </div>
+          </div> -->
           
           <!-- Invoice Preview -->
-          <div class=" p-2 overflow-scroll h-[90%]">
+          <!-- <div class=" p-2 overflow-scroll h-[90%]">
           <div class="bg-white p-8 rounded-lg shadow-sm">
             <div class="flex justify-between items-start mb-8">
               <div>
@@ -169,10 +169,10 @@
                 <p class="mb-1"><span class="text-gray-600">Date: </span>22 janvier 2024</p>
                 <p><span class="text-gray-600">Invoice ID: </span>#56456687</p>
               </div>
-            </div>
+            </div> -->
 
             <!-- Products Table -->
-            <table class="w-full mb-8">
+            <!-- <table class="w-full mb-8">
               <thead>
                 <tr class="border-b">
                   <th class="text-left py-2">Product</th>
@@ -195,9 +195,12 @@
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div> 
+        </div> -->
+        <div v-for="page in pages" :key="page">
+          <VuePDF :pdf="pdf" :page="page" />
         </div>
-        </div>
+      </div>
       </div>
     </div>
 
@@ -247,6 +250,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import Button from 'components/basic/Button.vue'
+import { VuePDF, usePDF } from '@tato30/vue-pdf'
 
 const showPaymentWarning = ref(true)
 const currentTab = ref('all')
@@ -254,6 +258,8 @@ const showActionsMenu = ref(false)
 const actionMenuTarget = ref(null)
 const selectedInvoice = ref(null)
 const showPreview = ref(false)
+const page = ref(1)
+const { pdf, pages } = usePDF('/files/facture.pdf')
 
 // Calculate and set the table top position for the preview panel
 onMounted(() => {
@@ -281,6 +287,8 @@ const invoices = ref([
     products: [
       { name: 'Product1', amount: '20 000', quantity: 10, commission: '40 000', commissionPercentage: 20 },
       { name: 'Product2', amount: '20 000', quantity: 10, commission: '40 000', commissionPercentage: 20 },
+      { name: 'Product3', amount: '20 000', quantity: 5, commission: '40 000', commissionPercentage: 20 },
+      { name: 'Product3', amount: '20 000', quantity: 5, commission: '40 000', commissionPercentage: 20 },
       { name: 'Product3', amount: '20 000', quantity: 5, commission: '40 000', commissionPercentage: 20 }
     ]
   },

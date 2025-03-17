@@ -1,8 +1,8 @@
 <template>
-    <div class=" bg-customGray-50 py-6 px-6 rounded-lg h-full">
+    <div class=" bg-customGray-50 pt-6 px-6 rounded-lg h-full">
       <h3 class="text-xl font-bold text-gray-800 mb-6">Price/ commission updates history</h3>
       
-      <div :class="['space-y-6', 'max-h-[600px]', 'overflow-y-auto', 'pr-2', props.height]">
+      <div :class="['space-y-6', 'overflow-y-auto', 'pr-2' , props.height]">
         <!-- Price Update - Pending -->
         <div class="border-2 bg-white border-primaryColor-400 rounded-lg p-4">
           <div class="flex justify-between mb-2">
@@ -68,6 +68,36 @@
           </div>
         </div>
   
+        <!-- Commission Update - Accepted -->
+        <div class="border bg-white border-gray-100 rounded-lg p-4">
+          <div class="flex justify-between mb-2">
+            <span class="font-medium">Commission update</span>
+            <span class="text-gray-500">11-08-2024</span>
+          </div>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between">
+              <span class="text-gray-400">New commission</span>
+              <span>25%</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Original commission</span>
+              <span>20%</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Price</span>
+              <span>2 500 DA</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Status</span>
+              <span class="flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                <span class="text-green-500">Accepted</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+
         <!-- Commission Update - Accepted -->
         <div class="border bg-white border-gray-100 rounded-lg p-4">
           <div class="flex justify-between mb-2">

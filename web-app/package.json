@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
+    "@tato30/vue-pdf": "^1.11.3",
     "axios": "^1.2.1",
     "pinia": "^2.0.11",
     "quasar": "^2.8.0",

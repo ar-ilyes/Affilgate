@@ -52,7 +52,7 @@
       <!-- History Panel -->
       <div 
         v-if="showHistory" 
-        class="fixed right-0 w-[400px] bg-white shadow-lg transition-transform duration-300 transform h-full"
+        class="fixed right-0 w-[400px] bg-customGray-50 shadow-lg transition-transform duration-300 transform h-full"
         :class="{ 'translate-x-0': showHistory, 'translate-x-full': !showHistory }"
         style="top: var(--table-top)"
       >
@@ -64,8 +64,8 @@
             class=" text-black w-10 h-10"
           />
         </div>
-        <div class="h-3/4 w-full">
-          <ProductUpdateHistory height=" h-[85%]" />
+        <div class="h-[70%] w-full bg-customGray-50">
+          <ProductUpdateHistory height=" h-full" />
         </div>
       </div>
     </div>
