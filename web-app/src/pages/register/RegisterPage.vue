@@ -22,8 +22,8 @@
                         class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-sm border border-slate-300 checked:bg-primary-500" id="acceptTerms" />
                     <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0.5" y="0.5" width="15" height="15" rx="1.5" fill="#278D62"/>
-                            <rect x="0.5" y="0.5" width="15" height="15" rx="1.5" stroke="#278D62"/>
+                            <rect x="0.5" y="0.5" width="15" height="15" rx="1.5" fill="#F97316"/>
+                            <rect x="0.5" y="0.5" width="15" height="15" rx="1.5" stroke="#F97316"/>
                             <path d="M11.3332 5.5L6.74984 10.0833L4.6665 8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </span>
@@ -67,7 +67,7 @@
         </div>
         <div class="text-center mt-6">
             <span class="text-[#919CA7]">Avez-vous déjà un compte ?
-                <router-link :to="{ name: 'login' }" class="text-[#278D62] font-semibold">Se connecter</router-link>
+                <router-link :to="{ name: 'login' }" class="text-[#F97316] font-semibold">Se connecter</router-link>
             </span>
         </div>
     </section>
